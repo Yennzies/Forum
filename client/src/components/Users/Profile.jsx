@@ -11,6 +11,7 @@ const [username , setUsername] = useState("")
 const [bio , setBio] = useState("")
 const [userProfile , setUserProfile] = useState(user[0])
 
+console.log(user[0])
 const navigate = useNavigate()
 
 

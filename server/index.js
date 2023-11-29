@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const {createPost , getAllPosts, createComment, getAllCommentsForPost, getAllUsers, addUser, getOneUser, updateUser} = require("./database/mysql/index.js")
+const {createPost , getAllPosts, createComment, getAllCommentsForPost, getAllUsers, addUser, getOneUser, updateUser, getUserByComment} = require("./database/mysql/index.js")
 const db = require('./database/mysql/index.js');
 
 
@@ -14,8 +14,16 @@ app.get("/AllPosts",  (req, res) => {
   getAllPosts((err , results) =>{
     if(err) res.status(400).send("this is the error", err)
     else res.status(200).json(results)
-  })
+})
 });
+
+app.get("/AllPosts/OnePost/Comment/" , (req , res) => {
+  // let {id} = req.params
+  getUserByComment((err,results) => {
+    if(err) res.status(500).send(err)
+    else res.status(200).json(results)
+  })
+})
 
 app.post("/Login" , (req , res) => {
   let {username , password , picture} = req.body
@@ -29,7 +37,7 @@ app.post("/:id" , async (req , res) => {
   let {id} = req.params
   let {question} = req.body
   try{
-     createPost(question, id)
+    createPost(question, id)
     res.status(201).send("post added")
   }catch(err){
     res.status(500).send("this is the error" , err)
@@ -76,6 +84,7 @@ app.put("/:id" , (req , res) => {
     else res.status(200).json(results)
   }, username , bio , id)
 })
+
 
 
 app.listen(PORT, () => {

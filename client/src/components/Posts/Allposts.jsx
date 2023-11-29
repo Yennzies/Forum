@@ -36,13 +36,14 @@ const AllPosts = ({users, getonePost}) => {
     </div>
     </header>
     <div className="allPosts">
-    
+       <h1 style={{textAlign:"center"}}>Other Questions you might be interested in</h1>
      {posts.map((post) => {
-      let userPost = users.filter((user) => user.idUsers === post.userFid)
-      return <>
+       let userPost = users.filter((user) => user.idUsers === post.userFid)
+       return <div className="container">
+        <img src={userPost[0].picture} alt="404" />
       <p>Question Posted by : {userPost[0].username}</p>
-      <OnePost data ={post} key={post.idPosts} users = {users} getonePost={getonePost} />
-      </>
+      <OnePost data ={post} key={post.idPosts} users = {users} getonePost={getonePost}  />
+      </div>
      })}
     </div>
       </>

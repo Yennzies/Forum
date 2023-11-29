@@ -86,6 +86,13 @@ const updateUser = (callback , username , bio , id) => {
   })
 }
 
+const getUserByComment = (callback ) => {
+  const sql = "select * from users inner join comments on users.idUsers = comments.userFid ;"
+  connection.query(sql , (err , result) => {
+    callback(err , result)
+  })
+}
+
 
 
 // Don't forget to export your functions!
@@ -98,4 +105,5 @@ module.exports = {
   addUser,
   getOneUser,
   updateUser,
+  getUserByComment,
 };

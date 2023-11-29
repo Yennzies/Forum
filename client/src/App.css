@@ -80,7 +80,7 @@ header {
   box-shadow: 20px 20px 30px rgba(0, 0, 0, .05);
 }
 
-.onePost {
+.onePost  {
   display: flex;
   border: 1px solid rgb(147, 134, 134);
   border-radius: 10px;
@@ -172,4 +172,128 @@ header {
 	padding: .4em;
   margin-bottom: 20px;
 	color: #E91E63;
+}
+
+.comment-box,
+.comments .list {
+  background-color: #e4e4e4;
+  border-radius: 6px;
+  box-shadow: 0 2px 2px #0002;
+}
+
+.comment-session {
+  width: 650px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.comments .list {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.comments .list .user {
+  display: flex;
+  padding: 8px;
+  overflow: hidden;
+}
+
+.comments .list .user img{
+  height: 38px;
+  width: 38px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.comment-session .name {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.comments .list .day{
+  font-size: 12px;
+}
+
+.comments .comment-post {
+  padding: 100px 0 15px 0;
+  font-size: x-large;
+}
+
+.comment-box {
+  padding: 10px;
+  overflow: hidden;
+}
+
+.comment-box .user {
+  display: flex;
+  width: min-content;
+}
+
+.comment-box textarea {
+  width: -webkit-fill-available;
+  height: 152px;
+  margin: 10px 0;
+  padding: 10px;
+  resize: inherit;
+  appearance: none;
+	border: none;
+	outline: none;
+  border-bottom: .2em solid #E91E63;
+	background: rgba(#E91E63, .2);
+	border-radius: .2em .2em 0 0;
+	color: #E91E63;
+  font-size: x-large;
+}
+
+.comment-box button {
+  appearance: none;
+	border: .2em solid #E91E63;
+	background: hsl(0 0 0/0);
+	padding: .85em 1.5em;
+	color: #E91E63;
+	border-radius: 2em;
+	transition: 1s;
+	&:hover, &:focus, &:active {
+		background: #E91E63;
+		color: #fff;
+	}
+}
+
+.comment-box .image img{
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 50%;
+  padding: 10px;
+  height: auto;
+  padding: 2rem;
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, .05);
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin: 50px;
+  border: 0px solid;
+  border-radius: 10px;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, .05);
+}
+
+.container img {
+  
+  height: 38px;
+  width: 38px;
+  margin-right: 10px;
+  border-radius: 50%;
 }
