@@ -93,6 +93,13 @@ const getUserByComment = (callback ) => {
   })
 }
 
+const updateLikes = (callback , num , id) => {
+  const sql = 'update comments set likes = ? where idComments = ?'
+  connection.query(sql , [num , id] , (err,results) => {
+    callback(err , results)
+  })
+}
+
 
 
 // Don't forget to export your functions!
@@ -106,4 +113,5 @@ module.exports = {
   getOneUser,
   updateUser,
   getUserByComment,
+  updateLikes
 };

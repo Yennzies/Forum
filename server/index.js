@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const {createPost , getAllPosts, createComment, getAllCommentsForPost, getAllUsers, addUser, getOneUser, updateUser, getUserByComment} = require("./database/mysql/index.js")
+const {createPost , getAllPosts, createComment, getAllCommentsForPost, getAllUsers, addUser, getOneUser, updateUser, getUserByComment, updateLikes} = require("./database/mysql/index.js")
 const db = require('./database/mysql/index.js');
 
 
@@ -85,6 +85,14 @@ app.put("/:id" , (req , res) => {
   }, username , bio , id)
 })
 
+app.put("/AllPosts/OnePost/Comment/:id", (req,res) => {
+  let {id} = req.params
+  let {likes} = req.body
+  updateLikes((err , results) => {
+    if (err) res.status(500).send(err)
+    else res.status(200).json(results)
+  }, likes , id)
+})
 
 
 app.listen(PORT, () => {

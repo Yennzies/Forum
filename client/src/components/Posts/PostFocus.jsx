@@ -15,7 +15,8 @@ const createComment =(comment) => {
 }
 
   const fetchComments =() => {
-    axios.get(`http://localhost:8080/AllPosts/OnePost/${onePost.idPosts}` ).then((res) => setComments(res.data)).catch((err) => console.log("this is the error" , err))
+    axios.get(`http://localhost:8080/AllPosts/OnePost/${onePost.idPosts}` ).then((res) => {setComments(res.data.sort((a,b) => b.likes - a.likes))})
+      .catch((err) => console.log("this is the error" , err))
   } 
 
   const userOnUse = () => {
@@ -27,7 +28,7 @@ const createComment =(comment) => {
   useEffect(() => {
     userOnUse()
     fetchComments()
-  }, [])
+  },[])
   return (
     <>
       <header>
